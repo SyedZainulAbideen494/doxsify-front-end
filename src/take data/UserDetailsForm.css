@@ -1,0 +1,166 @@
+.user__Data__Flow__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f1f1f1; /* Light gray background */
+    padding: 20px;
+}
+
+.user__Data__Flow__form-card {
+    background: #fff; /* White background for the card */
+    border-radius: 20px; /* Rounded edges */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+    padding: 40px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.user__Data__Flow__step {
+    text-align: center;
+}
+
+.user__Data__Flow__h2 {
+    font-size: 1.6rem; /* Slightly larger title for elegance */
+    margin-bottom: 25px;
+    color: #333; /* Dark text for readability */
+    font-weight: 500;
+}
+
+.user__Data__Flow__input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    border: 1px solid #ddd; /* Soft borders */
+    border-radius: 15px; /* Rounder input fields */
+    padding: 12px;
+    background-color: #fafafa; /* Light gray background for input areas */
+}
+
+.user__Data__Flow__icon {
+    margin-right: 15px;
+    color: #999; /* Slightly lighter icons for a modern look */
+}
+
+.user__Data__Flow__input-group input {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    padding: 10px;
+    font-size: 1.1rem;
+    color: #333; /* Darker text for input */
+}
+.user__Data__Flow__gender-options {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.user__Data__Flow__gender-button {
+    background-color: #fff; /* White background */
+    padding: 12px 25px;
+    border: 1px solid #ddd;
+    border-radius: 20px; /* Rounded edges */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    transition: background-color 0.3s, transform 0.2s; /* Smooth hover effect */
+    white-space: nowrap;
+    flex: 1;
+    justify-content: center;
+    min-width: 150px;
+    margin: 5px;
+}
+
+.user__Data__Flow__gender-button.selected {
+    background-color: #333; /* Dark background for selected state */
+    color: #fff; /* White text for contrast */
+    transform: scale(1.05); /* Slight scale-up effect */
+}
+
+.user__Data__Flow__gender-button:hover {
+    background-color: #f1f1f1; /* Light gray background on hover */
+}
+
+/* Mobile: Stack buttons vertically */
+@media (max-width: 600px) {
+    .user__Data__Flow__gender-options {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .user__Data__Flow__gender-button {
+        width: 100%;
+        margin: 8px 0;
+    }
+}
+
+.user__Data__Flow__dob-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.user__Data__Flow__dob-group input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 15px; /* Rounded edges */
+    border: 1px solid #ddd;
+    font-size: 1.1rem;
+    background-color: #fafafa;
+    transition: all 0.3s ease-in-out;
+}
+
+.user__Data__Flow__dob-group input[type="date"]:focus {
+    border-color: #333; /* Dark border on focus */
+    background-color: #fff; /* White background on focus */
+    outline: none;
+}
+
+.user__Data__Flow__dob-group input[type="date"]::-webkit-calendar-picker-indicator {
+    background-color: #f1f1f1;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.user__Data__Flow__next-btn,
+.user__Data__Flow__confirm-btn {
+    background-color: #333; /* Dark background for buttons */
+    color: white;
+    padding: 15px 30px;
+    border-radius: 25px; /* More rounded edges */
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s, transform 0.2s; /* Smooth hover effect */
+}
+
+.user__Data__Flow__next-btn:hover,
+.user__Data__Flow__confirm-btn:hover {
+    background-color: #444; /* Slightly lighter dark on hover */
+    transform: scale(1.05); /* Slight scale-up effect on hover */
+}
+
+.user__Data__Flow__confirm-btn:disabled {
+    background-color: #ccc; /* Disabled button color */
+}
+
+.user__Data__Flow__review-list {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+    text-align: left;
+    font-size: 1rem;
+    color: #555; /* Lighter text for review list */
+}
+
+.user__Data__Flow__review-list li {
+    margin-bottom: 15px;
+}
+
+.user__Data__Flow__review-list li .icon {
+    margin-right: 10px;
+    color: #999; /* Lighter icon color */
+}

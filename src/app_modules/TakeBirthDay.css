@@ -1,0 +1,249 @@
+/* Modal container */
+.modal__birthDay_modal__page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(240, 240, 255, 0.9); /* Soft pastel blue background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .modal-content__birthDay_modal__page {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Add fade-in animation */
+  .animate__birthDay_modal__page {
+    animation: fadeIn 0.4s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* SVG container */
+  .svg-container__birthDay_modal__page {
+    margin-bottom: 20px;
+  }
+  
+  .svg__birthDay_modal__page {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    display: block;
+  }
+  
+  /* Heading styles */
+  .heading__birthDay_modal__page {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #334155; /* Dark neutral blue-gray */
+  }
+  
+  .subheading__birthDay_modal__page {
+    font-size: 16px;
+    color: #64748b; /* Soft grayish-blue */
+    margin-bottom: 25px;
+  }
+  
+  /* Input field */
+  .input__birthDay_modal__page {
+    width: 90%;
+    padding: 14px;
+    margin: 15px 0;
+    border: 2px solid #d1d5db;
+    border-radius: 25px; /* Fully rounded input */
+    font-size: 16px;
+    color: #1e293b;
+    background: #f8fafc; /* Subtle white-gray */
+    text-align: center;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  /* Input hover and focus */
+  .input__birthDay_modal__page:focus,
+  .input__birthDay_modal__page:hover {
+    border-color: #4f46e5; /* Indigo highlight */
+    box-shadow: 0 0 8px rgba(79, 70, 229, 0.2);
+    background: #eef2ff; /* Light indigo background */
+  }
+  
+  /* Button group */
+  .button-group__birthDay_modal__page {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* Add space between buttons */
+    margin-top: 25px;
+  }
+  
+  /* Buttons */
+  .submit-btn__birthDay_modal__page {
+    background-color: #10b981; /* Soft green */
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .later-btn__birthDay_modal__page {
+    background-color: #f97316; /* Soft orange */
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  /* Button hover effects */
+  .submit-btn__birthDay_modal__page:hover {
+    background-color: #059669; /* Darker green */
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  }
+  
+  .later-btn__birthDay_modal__page:hover {
+    background-color: #ea580c; /* Darker orange */
+    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+  }
+  
+  /* Wrapper styling */
+.datepicker-wrapper {
+  display: inline-block;
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Input styling */
+.input__birthday.styled__datepicker {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+  background: #f9f9f9;
+  transition: all 0.3s ease;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input__birthday.styled__datepicker:focus {
+  outline: none;
+  border-color: #000;
+  background: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Calendar styling */
+.custom-calendar {
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Calendar header styling */
+.custom-calendar .react-datepicker__header {
+  background: #000; /* Black header */
+  color: white; /* White text for contrast */
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px 8px 0 0;
+}
+
+/* Day buttons styling */
+.custom-calendar .react-datepicker__day {
+  font-size: 14px;
+  color: #333; /* Dark text for normal days */
+}
+
+.custom-calendar .react-datepicker__day:hover {
+  background: #000; /* Black hover */
+  color: white; /* White text on hover */
+  border-radius: 50%;
+}
+
+/* Selected day styling */
+.custom-calendar .react-datepicker__day--selected {
+  background: #000; /* Black for selected day */
+  color: white;
+  border-radius: 50%;
+}
+
+/* Today highlight styling */
+.custom-calendar .react-datepicker__day--today {
+  border: 1px solid #000; /* Black border for today */
+  background: transparent;
+  color: #000;
+}
+
+/* Month and year dropdown styling */
+.react-datepicker__month-dropdown,
+.react-datepicker__year-dropdown {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.react-datepicker__month-option:hover,
+.react-datepicker__year-option:hover {
+  background: #000; /* Black hover */
+  color: white; /* White text */
+}
+
+/* Custom placeholder styling */
+.input__birthday::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 600px) {
+  .input__birthday.styled__datepicker {
+    font-size: 14px;
+  }
+  .datepicker-wrapper {
+    max-width: 100%;
+  }
+}
+
+.custom-datepicker-button {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.custom-datepicker-button:hover {
+  border-color: #007bff;
+}

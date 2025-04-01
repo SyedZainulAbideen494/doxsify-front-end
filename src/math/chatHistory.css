@@ -1,0 +1,70 @@
+.chat-history-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f7f9fc; /* Light background color for contrast */
+    border-radius: 15px; /* Rounded corners for the frame */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 20px;
+    max-width: 600px; /* Limiting the width for a better layout */
+    margin: 20px auto; /* Centering the frame with margin */
+  }
+  
+  .chat-history-page h1 {
+    font-size: 24px; /* Font size for the heading */
+    color: #333; /* Darker color for better readability */
+    margin-bottom: 20px; /* Space below the heading */
+    text-align: center; /* Center the heading */
+    position: relative; /* For positioning the underline */
+    display: flex; /* Use flex for inline positioning */
+    align-items: center; /* Center align items vertically */
+  }
+  
+  .chat-history-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Reduced margin for a smaller header */
+    position: sticky; /* Make header sticky */
+    border-radius: 25px;
+    top: 0; /* Stick to the top */
+    background-color: #f7f9fc; /* Background color to match the page */
+    z-index: 10; /* Ensure it stays above other elements */
+    padding: 5px; /* Reduced padding */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for separation */
+  }
+  
+  .sticky-header h3 {
+    font-size: 15px; /* Smaller font size for header text */
+    margin: 0; /* Remove default margin */
+  }
+  
+  .back-button__chat_history__page__ai {
+    background: none;
+    border: none;
+    color: #4a90e2;
+    font-size: 13px; /* Slightly smaller font size for the back button */
+    cursor: pointer;
+    margin-right: 5px; /* Reduced space between button and heading */
+  }
+  
+  
+  .chat-history-page h1::after {
+    content: '';
+    display: block;
+    width: 50px; /* Width of the underline */
+    height: 4px; /* Thickness of the underline */
+    background-color: #4a90e2; /* Color of the underline */
+    margin: 8px auto; /* Center the underline */
+    border-radius: 2px; /* Rounded ends for the underline */
+  }
+
+  .no-chat-history-message {
+    text-align: center; /* Center the message */
+    color: #666; /* Soft gray color for text */
+    padding: 20px; /* Some padding for spacing */
+    font-size: 16px; /* Font size */
+    border: 1px dashed #4a90e2; /* Dashed border to distinguish the message */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #f7f9fc; /* Light background color */
+  }
+  

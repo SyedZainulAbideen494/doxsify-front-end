@@ -1,0 +1,149 @@
+/* Centering & Background */
+.login-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #f5f5f7; /* Apple-like light grey */
+  padding: 20px;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  z-index: 9999;
+}
+
+/* Login Card */
+.login-container {
+  max-width: 340px;
+  padding: 24px;
+  border-radius: 16px; /* Softer rounded edges */
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Subtle hover effect */
+.login-container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* Headings & Text */
+.login-container h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.login-container p {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 18px;
+}
+
+.error-message {
+  color: #ff3b30; /* Apple-like red */
+  text-align: center;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+
+/* Input Fields */
+.input-container-login {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 14px;
+}
+
+/* Input Styles - Glassmorphism */
+.login-container input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  color: #222;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+/* Input Focus */
+.login-container input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Icons */
+.icon {
+  position: absolute;
+  left: 12px;
+  font-size: 1.2rem;
+  color: #777;
+}
+
+/* Toggle Password Icon */
+.toggle-password-icon {
+  position: absolute;
+  right: 12px;
+  font-size: 1.2rem;
+  color: #666;
+  cursor: pointer;
+}
+
+/* Submit Button */
+.login-container button[type="submit"] {
+  background: linear-gradient(135deg, #000, #333);
+  color: #fff;
+  border: none;
+  padding: 14px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 12px; /* Rounded button */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-align: center;
+}
+
+/* Hover Effect */
+.login-container button[type="submit"]:hover {
+  background: linear-gradient(135deg, #222, #444);
+  transform: scale(1.02);
+}
+
+/* Links */
+.links-login {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.links-login a {
+  color: #007aff; /* Apple blue */
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.links-login a:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}

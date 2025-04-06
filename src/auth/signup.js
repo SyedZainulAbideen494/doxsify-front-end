@@ -79,7 +79,7 @@ const validatePhoneNumber = (phone) => {
 
         setLoading(true);
         try {
-            const response = await fetch('http://localhost:5000/signup', {
+            const response = await fetch(API_ROUTES.signup, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
@@ -103,7 +103,7 @@ const validatePhoneNumber = (phone) => {
             });
             setTermsAccepted(false);
             setError(null);
-            nav('/welcome');
+            nav('/user-flow-data');
         } catch (error) {
             console.error('Error signing up:', error);
             setError('Error signing up. Please try again later.');

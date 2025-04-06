@@ -10,6 +10,7 @@ import AiLoaderSpeaking from './AiLoaderSpeaking';
 import Modal from 'react-modal';
 import { FaBook, FaPen, FaQuestionCircle, FaTimes } from 'react-icons/fa';
 import { FaComment, FaGear, FaInfo } from 'react-icons/fa6';
+import { API_ROUTES } from '../app_modules/apiRoutes';
 // Voice recognition setup (Web Speech API)
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = SpeechRecognition ? new SpeechRecognition() : null;
@@ -116,7 +117,7 @@ const toggleChatModal = () => {
             formData.append("image", image);
             formData.append("prompt", message || "Analyze this image and provide details.");  
 
-            const response = await axios.post('http://localhost:5000/api/process-images', formData, {
+            const response = await axios.post(API_ROUTES.aiImgChat, formData, {
                 headers: { 
                     "Content-Type": "multipart/form-data",
                     Authorization: `Bearer ${token}` // Send token
@@ -129,7 +130,7 @@ const toggleChatModal = () => {
         } else {
             if (!message.trim()) throw new Error("Message cannot be empty.");
 
-            const response = await axios.post('http://localhost:5000/api/chat/ai', {
+            const response = await axios.post(API_ROUTES.aiChat, {
                 message,
                 chatHistory: newHistory,
             }, {
@@ -193,7 +194,7 @@ const toggleChatModal = () => {
     <div className="container__default__ai__PageWrapper">
       <div className="default__ai__card glassy-card">
         <div className="sparkle-avatar">
-          <img src="http://localhost:5000/doxsify.png" alt="Doxsify AI" />
+          <img src={`${API_ROUTES.displayImg}/doxsify.png`}  alt="Doxsify AI" />
           <div className="glow-ring" />
         </div>
         <h2 className="default__title">Hey, I’m Doxsify AI</h2>
@@ -300,7 +301,7 @@ const SparkleIcon = ({ size = 18, color = "#b197fc" }) => (
   return (
 <div className="doxsify__ai__container">
   <header className="doxsify__ai__header glass-header">
-    <img src="http://localhost:5000/defPic.png" className="doxsify__avatar" alt="User" />
+    <img src={`${API_ROUTES.displayImg}/defPic.png`} className="doxsify__avatar" alt="User" />
     <h1 className="doxsify__title">Doxsify <span className="sparkle-wrapper"><SparkleIcon /></span></h1>
     
     <div className="header-right__Clear__msg__msg__his__Modal">

@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { FaUser, FaTransgender, FaWeight, FaRuler, FaCalendarAlt, FaCheckCircle } from "react-icons/fa";
 import "./UserDetailsForm.css";
+import { API_ROUTES } from "../app_modules/apiRoutes";
 
 const UserDetailsForm = () => {
     const [step, setStep] = useState(1);
@@ -25,10 +26,10 @@ const UserDetailsForm = () => {
 
         setLoading(true);
         try {
-            await axios.post("http://localhost:5000/api/save-details", {
+            await axios.post(API_ROUTES.saveUserData, {
                 token, name, gender, weight, height, dobMonth, dobDay, dobYear
             });
-            navigate("/dashboard"); // Redirect after successful submission
+            navigate("/user-flow-data-medical"); // Redirect after successful submission
         } catch (error) {
             console.error("Error saving details:", error);
             alert("Failed to save details.");

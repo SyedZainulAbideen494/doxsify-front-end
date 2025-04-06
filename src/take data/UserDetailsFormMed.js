@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { FaHeartbeat, FaMedkit, FaSmoking, FaCheckCircle } from "react-icons/fa";
 import axios from "axios";
 import "./UserDetailsForm.css";
+import { useNavigate } from "react-router-dom";
+import { API_ROUTES } from "../app_modules/apiRoutes";
 
 const MedicalDetailsForm = () => {
     const [step, setStep] = useState(1);
@@ -10,6 +12,7 @@ const MedicalDetailsForm = () => {
     const [allergies, setAllergies] = useState("");
     const [smokingDrinking, setSmokingDrinking] = useState("");
     const [loading, setLoading] = useState(false);
+    const nav = useNavigate()
 
     const handleDiseaseSelection = (disease) => {
         setChronicDiseases((prev) =>
@@ -19,27 +22,30 @@ const MedicalDetailsForm = () => {
 
     const handleSubmit = async () => {
         setLoading(true);
-        const token = localStorage.getItem("token"); // Fetch token from storage
+        const token = localStorage.getItem("token");
+    
+        const payload = {
+            token,
+            chronicDiseases,
+            ongoingMedications,
+            allergies,
+            smokingDrinking,
+        };
+    
+        console.log("🚀 Sending payload:", payload);
     
         try {
-            await axios.post("http://localhost:5000/api/save-medical-details", {
-                chronicDiseases,
-                ongoingMedications,
-                allergies,
-                smokingDrinking,
-            }, {
-                headers: {
-                    Authorization: token // Send token in headers
-                }
-            });
-    
-            alert("Details saved successfully!");
+            await axios.post(API_ROUTES.saveUserMedData, payload);
+            nav('/');
         } catch (error) {
-            console.error("Error saving medical details:", error);
+            console.error("❌ Error saving medical details:", error);
             alert("Failed to save details.");
         }
+    
         setLoading(false);
     };
+    
+    
     
     return (
         <div className="user__Data__Flow__container">

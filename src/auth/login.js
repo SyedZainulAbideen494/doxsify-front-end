@@ -29,7 +29,7 @@ const Login = () => {
         event.preventDefault();
         setLoading(true);
 
-        Axios.post('http://localhost:5000/login', {
+        Axios.post(API_ROUTES.login, {
             identifier: identifier,
             password: password,
         }).then((response) => {

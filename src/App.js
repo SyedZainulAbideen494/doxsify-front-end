@@ -14,6 +14,7 @@ import SignUp from "./auth/signup";
 import Dashboard from "./dashboard/Dashboard";
 import MathPage from "./math/mathPage";
 import UserDetailsForm from "./take data/UserDetailsForm";
+import MedicalDetailsForm from "./take data/UserDetailsFormMed";
 
 
 const urlBase64ToUint8Array = (base64String) => {
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
   { path: '/login', element: <Login/>},
   {path: '/sign-up', element: <SignUp/>},
   {path: '/user-flow-data', element: <UserDetailsForm/>},
+  {path: '/user-flow-data-medical', element: <MedicalDetailsForm/>},
   {path: '/', element: <MathPage/>},
 ]);
 

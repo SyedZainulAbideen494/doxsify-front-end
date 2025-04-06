@@ -70,57 +70,53 @@ html, body {
   gap: 6px;
 }
 
-.header-right {
+
+.header-right__Clear__msg__msg__his__Modal {
   display: flex;
   align-items: center;
   gap: 8px;
   position: relative;
+  z-index: 9999; /* Keep it above */
 }
 
-.doxsify__settings {
+.doxsify__settings__Clear__msg__msg__his__Modal {
   background: transparent;
   color: white;
   font-size: 18px;
   border: none;
   cursor: pointer;
   transition: var(--transition);
-}
-
-.doxsify__settings:hover {
-  color: var(--neon-purple);
-}
-
-.doxsify__chat__modal {
-  position: absolute;
-  top: 44px;
-  right: 0;
+  position: relative;
+  z-index: 10000;
+}.inline-settings__Clear__msg__msg__his__Modal {
+  display: flex;
+  flex-direction: column;
   background: var(--glass);
   border: 1px solid var(--glass-highlight);
   border-radius: var(--radius);
-  padding: 10px;
+  padding: 12px;
   backdrop-filter: blur(20px);
   box-shadow: 0 4px 16px rgba(162, 89, 255, 0.1);
-  z-index: 10;
-  width: 160px;
+  z-index: 9999999;
+  margin-left: 12px;
+  animation: fadeInUp 0.3s ease-in-out;
 }
 
-.modal-btn {
+.settings-option__Clear__msg__msg__his__Modal {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px;
-  background: transparent;
-  border: none;
+  gap: 10px;
   color: white;
   font-size: 14px;
-  width: 100%;
-  border-radius: 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
   cursor: pointer;
   transition: var(--transition);
 }
 
-.modal-btn:hover {
+.settings-option__Clear__msg__msg__his__Modal:hover {
   background: rgba(255, 255, 255, 0.06);
+  color: var(--neon-purple);
 }
 
 /* Chat area */

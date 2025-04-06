@@ -303,21 +303,25 @@ const SparkleIcon = ({ size = 18, color = "#b197fc" }) => (
     <img src="http://localhost:5000/defPic.png" className="doxsify__avatar" alt="User" />
     <h1 className="doxsify__title">Doxsify <span className="sparkle-wrapper"><SparkleIcon /></span></h1>
     
-    <div className="header-right">
-      <button className="doxsify__settings" onClick={toggleChatModal}>
-        <FaGear />
-      </button>
-      {isChatModalOpen && (
-        <div className="doxsify__chat__modal">
-          <button onClick={() => console.log("Chat History")} className="modal-btn">
-            <FaInfo /> Chat History
-          </button>
-          <button onClick={handleClearHistory} className="modal-btn">
-            <FaTrash /> Clear Chat
-          </button>
-        </div>
-      )}
+    <div className="header-right__Clear__msg__msg__his__Modal">
+  <button className="doxsify__settings__Clear__msg__msg__his__Modal" onClick={toggleChatModal}>
+    <FaGear />
+  </button>
+
+  {isChatModalOpen && (
+    <div className="inline-settings__Clear__msg__msg__his__Modal">
+      <div className="settings-option__Clear__msg__msg__his__Modal" onClick={() => console.log("Chat History")}>
+        <FaInfo /> <span>Chat History</span>
+      </div>
+      <div className="settings-option__Clear__msg__msg__his__Modal" onClick={handleClearHistory}>
+        <FaTrash /> <span>Clear Chat</span>
+      </div>
     </div>
+  )}
+</div>
+
+
+
   </header>
 
   <div className="doxsify__chat__area">

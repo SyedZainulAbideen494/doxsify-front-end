@@ -191,21 +191,22 @@ const toggleChatModal = () => {
 
   const defaultPage = (
     <div className="container__default__ai__PageWrapper">
-      {/* Gradient Greeting */}
-      <div className="greeting-message">
-        <h1>
-          <span className="gradient-text">
-            Hello,
-          </span>
-          <br />
-          <span className="gradient-text">
-           User
-          </span>
-          <br />
-        </h1>
+      <div className="default__ai__card glassy-card">
+        <div className="sparkle-avatar">
+          <img src="http://localhost:5000/defPic.png" alt="Doxsify AI" />
+          <div className="glow-ring" />
+        </div>
+        <h2 className="default__title">Hey, I’m Doxsify AI</h2>
+        <p className="default__subtitle">Your personal doctor-grade assistant. Ask me anything medical, upload images, or speak.</p>
+        <div className="suggestions">
+          <button onClick={() => setMessage("What are the symptoms of vitamin D deficiency?")} className="suggestion-btn">💊 Symptoms of Vitamin D Deficiency</button>
+          <button onClick={() => setMessage("Suggest treatment for a migraine")} className="suggestion-btn">🧠 Migraine Treatment Options</button>
+          <button onClick={() => setMessage("Is this mole concerning?")} className="suggestion-btn">📷 Analyze My Skin Mole</button>
+        </div>
       </div>
     </div>
   );
+  
   
   const handleKeyDown = (e) => {
     if (loading) return; // Prevent action if loading is true

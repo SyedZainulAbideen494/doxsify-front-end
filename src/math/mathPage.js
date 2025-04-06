@@ -192,9 +192,9 @@ const toggleChatModal = () => {
   const defaultPage = (
     <div className="container__default__ai__PageWrapper">
       <div className="default__ai__card glassy-card">
-        <div className="glassy-orb-placeholder">
-          <div className="animated-ring"></div>
-          <div className="inner-orb">🤖</div>
+        <div className="sparkle-avatar">
+          <img src="http://localhost:5000/doxsify.png" alt="Doxsify AI" />
+          <div className="glow-ring" />
         </div>
         <h2 className="default__title">Hey, I’m Doxsify AI</h2>
         <p className="default__subtitle">Your personal doctor-grade assistant. Ask me anything medical, upload images, or speak.</p>

@@ -140,8 +140,9 @@ const validatePhoneNumber = (phone) => {
         <>
           <h2 className="signup-sign-up-page-heading">Create Your Account</h2>
           <p className="signup-sign-up-page-subtext">
-            Welcome to Doxsify: Your AI-Powered Smart Task Manager!
-          </p>
+  Step into the future of healthcare with Doxsify — your personal AI-powered doctor.
+</p>
+
         </>
         <form onSubmit={handleSubmit} className="signup-sign-up-page-form">
           {error && <p className="signup-sign-up-page-error">{error}</p>}

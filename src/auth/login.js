@@ -18,12 +18,12 @@ const Login = () => {
     const handlePasswordChange = (e) => setPassword(e.target.value);
     const togglePasswordVisibility = () => setPasswordVisible(!passwordVisible);
 
-    useEffect(() => {
+ {/*   useEffect(() => {
         const token = localStorage.getItem('token');
         if (token) {
             nav('/');
         }
-    }, [nav]);
+    }, [nav]); */}
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -48,48 +48,48 @@ const Login = () => {
 
     return (
         <div className="login-wrapper">
-            {loading && <LoadingSpinner />}
-            {!loading && (
-                <div className="login-container">
-                    <h2>Login</h2>
-                    {error && <p className="error-message" style={{ color: 'red' }}>{error}</p>}
-                    <form onSubmit={handleSubmit}>
-                        <div className="input-container-login">
-                            <input
-                                type="text"
-                                placeholder="Email or Username"
-                                value={identifier}
-                                onChange={handleIdentifierChange}
-                                required
-                            />
-                        </div>
-                        <div className="input-container-login">
-                            <input
-                                type={passwordVisible ? 'text' : 'password'}
-                                placeholder="Password"
-                                value={password}
-                                onChange={handlePasswordChange}
-                                required
-                            />
-                            <span
-                                className="toggle-password-icon"
-                                onClick={togglePasswordVisibility}
-                            >
-                                {passwordVisible ? <FaEye /> : <FaEyeSlash />}
-                            </span>
-                        </div>
-                        <button type="submit" className="login-button">
-                            Login
-                        </button>
-                        <div className="links-login">
-                            <Link to="/forgot-password">Forgot Password?</Link> |
-                            <Link to="/sign-up"> Sign up</Link>
-                        </div>
-                    </form>
-                    <p className="welcome-message">Welcome back! Please log in to continue.</p>
-                </div>
-            )}
-        </div>
+        {loading && <LoadingSpinner />}
+        {!loading && (
+          <div className="login-container">
+            <h2>Login</h2>
+            {error && <p className="error-message">{error}</p>}
+            <form onSubmit={handleSubmit}>
+              <div className="input-container-login">
+                <input
+                  type="text"
+                  placeholder="Email or Username"
+                  value={identifier}
+                  onChange={handleIdentifierChange}
+                  required
+                />
+              </div>
+  
+              <div className="input-container-login">
+                <input
+                  type={passwordVisible ? 'text' : 'password'}
+                  placeholder="Password"
+                  value={password}
+                  onChange={handlePasswordChange}
+                  required
+                />
+                <span className="toggle-password-icon" onClick={togglePasswordVisibility}>
+                  {passwordVisible ? <FaEyeSlash /> : <FaEye />}
+                </span>
+              </div>
+  
+              <button type="submit" className="login-button">
+                Login
+              </button>
+  
+              <div className="links-login">
+                <Link to="/forgot-password">Forgot Password?</Link> |{' '}
+                <Link to="/sign-up">Sign up</Link>
+              </div>
+            </form>
+            <p className="welcome-message">Welcome back! Please log in to continue.</p>
+          </div>
+        )}
+      </div>
     );
 };
 

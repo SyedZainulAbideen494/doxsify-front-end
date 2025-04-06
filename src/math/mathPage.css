@@ -173,12 +173,13 @@ html, body {
 .user-message .message-bubble {
   background: var(--neon-fade);
   color: white;
+  margin-top: 20px;
 }
 
 .ai-message .message-bubble {
   background: rgba(255, 255, 255, 0.05);
   color: white;
-  margin-top: 20;
+  margin-top: 20px;
 }
 
 /* Input bar */

@@ -134,114 +134,114 @@ const validatePhoneNumber = (phone) => {
     }, [nav]);  
 
     return (
-        <div className="signup-sign-up-page-card-main-div-signup">
-          <div className="signup-sign-up-page-card">
-
-           
- 
-            {loading && <LoadingSpinner />}
-      
-    
-              <>
-                <h2 className="signup-sign-up-page-heading">Create Your Doxsify Account</h2>
-                <p className="signup-sign-up-page-subtext">
-                  Welcome to Doxsify: Your AI-Powered Smart Task Manager!
-                </p>
-              </>
-       
-
-      
-            <form onSubmit={handleSubmit} className="signup-sign-up-page-form">
-              {error && <p className="signup-sign-up-page-error">{error}</p>}
-  
-                <>
-                  <div className="signup-sign-up-page-input-group">
-                    <FaEnvelope className="signup-sign-up-page-icon" />
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="signup-sign-up-page-input"
-                      autoComplete="email"
-                      aria-label="Enter your email"
-                    />
-                  </div>
-                  <div className="signup-sign-up-page-input-group">
-                    <FaLock className="signup-sign-up-page-icon" />
-                    <input
-                      type={passwordVisible ? 'text' : 'password'}
-                      name="password"
-                      placeholder="Password"
-                      value={formData.password}
-                      onChange={handleChange}
-                      required
-                      className="signup-sign-up-page-input"
-                      autoComplete="new-password"
-                      aria-label="Enter your password"
-                    />
-                    <span
-                      className="signup-sign-up-page-toggle-password"
-                      onClick={togglePasswordVisibility}
-                    >
-                      {passwordVisible ? <FaEyeSlash /> : <FaEye />}
-                    </span>
-                  </div>
-                  <div className="signup-sign-up-page-input-group">
-                    <FaPhone className="signup-sign-up-page-icon" />
-                    <input
-                      type="tel"
-                      name="phone_number"
-                      placeholder="Phone Number"
-                      value={formData.phone_number}
-                      onChange={handleChange}
-                      required
-                      className="signup-sign-up-page-input"
-                      autoComplete="tel"
-                      aria-label="Enter your phone number"
-                    />
-                  </div>
-                </>
-      
-      
-  
-                <>
-
-        
-                  <div className="signup-sign-up-page-checkbox-container" style={{ marginTop: '20px' }}>
-                    <input
-                      type="checkbox"
-                      id="terms"
-                      checked={termsAccepted}
-                      onChange={handleTermsChange}
-                      required
-                      className="signup-sign-up-page-checkbox"
-                      aria-label="Accept Terms and Conditions"
-                    />
-                    <label htmlFor="terms" className="signup-sign-up-page-checkbox-label">
-                      I agree to the <Link to="/terms" className="signup-sign-up-page-link" style={{ color: 'black' }}>Terms and Conditions</Link>
-                    </label>
-                  </div>
-                </>
-          
-
-      
-     
-                <button type="submit" disabled={!termsAccepted} className="signup-sign-up-page-submit-button">
-                  Sign Up
-                </button>
-     
-            </form>
-            <p style={{ textAlign: 'center', fontSize: '14px', color: '#333', marginTop: '20px' }}>
-              Already have an account?
-              <span style={{ fontWeight: 'bold', color: '#007bff' }}>
-                <Link to='/login' style={{ color: 'black' }}> Login</Link>
+      <div className="signup-sign-up-page-card-main-div-signup">
+      <div className="signup-sign-up-page-card">
+        {loading && <LoadingSpinner />}
+        <>
+          <h2 className="signup-sign-up-page-heading">Create Your Account</h2>
+          <p className="signup-sign-up-page-subtext">
+            Welcome to Doxsify: Your AI-Powered Smart Task Manager!
+          </p>
+        </>
+        <form onSubmit={handleSubmit} className="signup-sign-up-page-form">
+          {error && <p className="signup-sign-up-page-error">{error}</p>}
+          <>
+            <div className="signup-sign-up-page-input-group">
+              <FaEnvelope className="signup-sign-up-page-icon" />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="signup-sign-up-page-input"
+                autoComplete="email"
+                aria-label="Enter your email"
+              />
+            </div>
+            <div className="signup-sign-up-page-input-group">
+              <FaLock className="signup-sign-up-page-icon" />
+              <input
+                type={passwordVisible ? 'text' : 'password'}
+                name="password"
+                placeholder="Password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+                className="signup-sign-up-page-input"
+                autoComplete="new-password"
+                aria-label="Enter your password"
+              />
+              <span
+                className="signup-sign-up-page-toggle-password"
+                onClick={togglePasswordVisibility}
+              >
+                {passwordVisible ? <FaEyeSlash /> : <FaEye />}
               </span>
-            </p>
-          </div>
-        </div>
+            </div>
+            <div className="signup-sign-up-page-input-group">
+              <FaPhone className="signup-sign-up-page-icon" />
+              <input
+                type="tel"
+                name="phone_number"
+                placeholder="Phone Number"
+                value={formData.phone_number}
+                onChange={handleChange}
+                required
+                className="signup-sign-up-page-input"
+                autoComplete="tel"
+                aria-label="Enter your phone number"
+              />
+            </div>
+          </>
+          <>
+            <div
+              className="signup-sign-up-page-checkbox-container"
+              style={{ marginTop: '20px' }}
+            >
+              <input
+                type="checkbox"
+                id="terms"
+                checked={termsAccepted}
+                onChange={handleTermsChange}
+                required
+                className="signup-sign-up-page-checkbox"
+                aria-label="Accept Terms and Conditions"
+              />
+              <label htmlFor="terms" className="signup-sign-up-page-checkbox-label">
+                I agree to the{' '}
+                <Link to="/terms" className="signup-sign-up-page-link">
+                  Terms and Conditions
+                </Link>
+              </label>
+            </div>
+          </>
+          <button
+            type="submit"
+            disabled={!termsAccepted}
+            className="signup-sign-up-page-submit-button"
+          >
+            Sign Up
+          </button>
+        </form>
+        <p
+          style={{
+            textAlign: 'center',
+            fontSize: '14px',
+            color: '#aaa',
+            marginTop: '10px',
+          }}
+        >
+          Already have an account?
+          <span style={{ fontWeight: 'bold' }}>
+            <Link to="/login" className="signup-sign-up-page-link">
+              Login
+            </Link>
+          </span>
+        </p>
+      </div>
+    </div>
       );
       
 };

@@ -155,6 +155,7 @@ const toggleChatModal = () => {
         const formData = new FormData();
         formData.append("image", image);
         formData.append("prompt", message || "Analyze this image and provide details.");  
+        formData.append("token", localStorage.getItem('token'));  
   
         const response = await axios.post(API_ROUTES.aiImgChat, formData, {
           headers: { 
@@ -172,6 +173,7 @@ const toggleChatModal = () => {
         const response = await axios.post(API_ROUTES.aiChat, {
           message,
           chatHistory: newHistory,
+          token
         }, {
           headers: { Authorization: `Bearer ${token}` }
         });

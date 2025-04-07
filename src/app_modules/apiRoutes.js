@@ -9,5 +9,8 @@ export const API_ROUTES = {
   aiImgChat: `${API_URL}/api/process-images/doxsify`,
   aiChat: `${API_URL}/api/chat/ai/doxsify`,
   saveUserData: `${API_URL}/api/save-details/doxsify`,
-  saveUserMedData: `${API_URL}/api/save-medical-details/doxsify`
+  saveUserMedData: `${API_URL}/api/save-medical-details/doxsify`,
+  getPremium: `${API_URL}/buy-premium/doxsify`,
+  verifyPayment: `${API_URL}/verify-payment/doxsify`,
+  checkSubscription: `${API_URL}/check-subscription/doxsify`
 }

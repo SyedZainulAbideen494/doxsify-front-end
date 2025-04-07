@@ -79,6 +79,7 @@ const [result, setResult] = useState(null);
 const [imageprev, setImageprev] = useState(null); // Only one image state
 const [activeToggle, setActiveToggle] = useState("");
 const [isChatModalOpen, setChatModalOpen] = useState(false);
+  const [isPremium, setIsPremium] = useState(null);
 
 const toggleChatModal = () => {
   setChatModalOpen(!isChatModalOpen);
@@ -91,65 +92,109 @@ const toggleChatModal = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [chatHistory]);
 
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    
+    if (!token) {
+      setIsPremium(false);
+      return;
+    }
+  
+    axios.get(API_ROUTES.checkSubscription, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then(response => {
+      const { active } = response.data;
+      setIsPremium(active);
+    })
+    .catch(err => {
+      console.error("Subscription check failed:", err);
+      setIsPremium(false);
+    });
+  }, []);
+
   const handleSendMessage = async () => {
-    if (!message.trim() && !image) return; // Ensure message, image, or PDF is provided
+    if (!message.trim() && !image) return;
+  
+
+    // ✅ Block non-premium users
+    if (!isPremium) {
+      setTimeout(() => {
+        window.location.href = "/plans";
+      });
+      setLoading(false);
+      return;
+    }
   
     if (!conversationStarted) setConversationStarted(true);
   
     const newHistory = [...chatHistory, { role: "user", parts: [{ text: message || " " }] }];
     setChatHistory(newHistory);
     setLoading(true);
-
-    const token = localStorage.getItem("token"); // Retrieve token
+  
+    const token = localStorage.getItem("token");
     if (!token) {
-        console.error("User not authenticated.");
-        setChatHistory([...newHistory, { role: "model", parts: [{ text: "Authentication error. Please log in again." }] }]);
-        setLoading(false);
-        return;
+      console.error("User not authenticated.");
+      setChatHistory([...newHistory, {
+        role: "model",
+        parts: [{ text: "Authentication error. Please log in again." }]
+      }]);
+      setLoading(false);
+      return;
     }
+  
 
     try {
-        let formattedResultText = "";
-        let followUpMessage = message;
-
-        if (image) {
-            const formData = new FormData();
-            formData.append("image", image);
-            formData.append("prompt", message || "Analyze this image and provide details.");  
-
-            const response = await axios.post(API_ROUTES.aiImgChat, formData, {
-                headers: { 
-                    "Content-Type": "multipart/form-data",
-                    Authorization: `Bearer ${token}` // Send token
-                },
-            });
-
-            formattedResultText = formatContent(response.data.result);
-            followUpMessage = message || "Here's what I found in the image.";
-            setImage(null);
-        } else {
-            if (!message.trim()) throw new Error("Message cannot be empty.");
-
-            const response = await axios.post(API_ROUTES.aiChat, {
-                message,
-                chatHistory: newHistory,
-            }, {
-                headers: { Authorization: `Bearer ${token}` } // Send token
-            });
-
-            formattedResultText = formatContent(response.data.response);
-            followUpMessage = "";
-        }
-
-        setChatHistory([...newHistory, { role: "model", parts: [{ text: formattedResultText }] }]);
-        setMessage(followUpMessage);
+      let formattedResultText = "";
+      let followUpMessage = message;
+  
+      if (image) {
+        const formData = new FormData();
+        formData.append("image", image);
+        formData.append("prompt", message || "Analyze this image and provide details.");  
+  
+        const response = await axios.post(API_ROUTES.aiImgChat, formData, {
+          headers: { 
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`
+          },
+        });
+  
+        formattedResultText = formatContent(response.data.result);
+        followUpMessage = message || "Here's what I found in the image.";
+        setImage(null);
+      } else {
+        if (!message.trim()) throw new Error("Message cannot be empty.");
+  
+        const response = await axios.post(API_ROUTES.aiChat, {
+          message,
+          chatHistory: newHistory,
+        }, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+  
+        formattedResultText = formatContent(response.data.response);
+        followUpMessage = "";
+      }
+  
+      setChatHistory([...newHistory, {
+        role: "model",
+        parts: [{ text: formattedResultText }]
+      }]);
+      setMessage(followUpMessage);
     } catch (error) {
-        console.error("Error sending message:", error);
-        setChatHistory([...newHistory, { role: "model", parts: [{ text: "Something went wrong. Please try again later." }] }]);
+      console.error("Error sending message:", error);
+      setChatHistory([...newHistory, {
+        role: "model",
+        parts: [{ text: "Something went wrong. Please try again later." }]
+      }]);
     } finally {
-        setLoading(false);
+      setLoading(false);
     }
-};
+  };
+  
 
     const handleFileChange = (event) => {
       const file = event.target.files[0];

@@ -17,6 +17,7 @@ import UserDetailsForm from "./take data/UserDetailsForm";
 import MedicalDetailsForm from "./take data/UserDetailsFormMed";
 import SubscriptionPage from "./subscription/SubscriptionPage";
 import PaymentSuccess from "./subscription/PaymentSuccess";
+import ProfilePage from "./profile/ProfilePage";
 
 
 const urlBase64ToUint8Array = (base64String) => {
@@ -35,7 +36,8 @@ const router = createBrowserRouter([
   {path: '/user-flow-data-medical', element: <MedicalDetailsForm/>},
   {path: '/plans', element: <SubscriptionPage/>},
   {path: '/', element: <AIMain/>},
-  {path: "/payment-success", element: <PaymentSuccess/>}
+  {path: "/payment-success", element: <PaymentSuccess/>},
+  {path: '/profile', element: <ProfilePage/>},
 ]);
 
 

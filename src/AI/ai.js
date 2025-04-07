@@ -369,11 +369,15 @@ const SparkleIcon = ({ size = 18, color = "#a259ff" }) => (
   </svg>
 );
 
+const openProfile = () => {
+  navigate('/profile')
+}
+
 
   return (
 <div className="doxsify__ai__container">
 <header className="doxsify__ai__header glass-header">
-  <div className="doxsify__avatar__glass">
+  <div className="doxsify__avatar__glass" onClick={openProfile}>
   <SparkleIcon />
   </div>
 

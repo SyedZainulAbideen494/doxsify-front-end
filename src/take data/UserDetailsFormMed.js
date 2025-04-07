@@ -12,7 +12,7 @@ const MedicalDetailsForm = () => {
     const [allergies, setAllergies] = useState("");
     const [smokingDrinking, setSmokingDrinking] = useState("");
     const [loading, setLoading] = useState(false);
-    const nav = useNavigate()
+    const nav = useNavigate();
 
     const handleDiseaseSelection = (disease) => {
         setChronicDiseases((prev) =>
@@ -23,17 +23,17 @@ const MedicalDetailsForm = () => {
     const handleSubmit = async () => {
         setLoading(true);
         const token = localStorage.getItem("token");
-    
+
         const payload = {
             token,
-            chronicDiseases,
-            ongoingMedications,
-            allergies,
-            smokingDrinking,
+            chronicDiseases: chronicDiseases.length ? chronicDiseases : ["None"],
+            ongoingMedications: ongoingMedications.trim() || "Nope",
+            allergies: allergies.trim() || "Nope",
+            smokingDrinking: smokingDrinking || "Nope",
         };
-    
+
         console.log("🚀 Sending payload:", payload);
-    
+
         try {
             await axios.post(API_ROUTES.saveUserMedData, payload);
             nav('/');
@@ -41,15 +41,14 @@ const MedicalDetailsForm = () => {
             console.error("❌ Error saving medical details:", error);
             alert("Failed to save details.");
         }
-    
+
         setLoading(false);
     };
-    
-    
-    
+
     return (
         <div className="user__Data__Flow__container">
             <div className="user__Data__Flow__form-card">
+
                 {step === 1 && (
                     <div className="user__Data__Flow__step">
                         <h2>Any Chronic Diseases?</h2>
@@ -64,7 +63,13 @@ const MedicalDetailsForm = () => {
                                 </button>
                             ))}
                         </div>
-                        <button onClick={() => setStep(2)} className="user__Data__Flow__next-btn">Next →</button>
+                        <button
+                            onClick={() => setStep(2)}
+                            className="user__Data__Flow__next-btn"
+                            disabled={chronicDiseases.length === 0}
+                        >
+                            Next →
+                        </button>
                     </div>
                 )}
 
@@ -80,7 +85,9 @@ const MedicalDetailsForm = () => {
                                 onChange={(e) => setOngoingMedications(e.target.value)}
                             />
                         </div>
-                        <button onClick={() => setStep(3)} className="user__Data__Flow__next-btn">Next →</button>
+                        <button onClick={() => setStep(3)} className="user__Data__Flow__next-btn">
+                            Next →
+                        </button>
                     </div>
                 )}
 
@@ -96,7 +103,9 @@ const MedicalDetailsForm = () => {
                                 onChange={(e) => setAllergies(e.target.value)}
                             />
                         </div>
-                        <button onClick={() => setStep(4)} className="user__Data__Flow__next-btn">Next →</button>
+                        <button onClick={() => setStep(4)} className="user__Data__Flow__next-btn">
+                            Next →
+                        </button>
                     </div>
                 )}
 
@@ -114,7 +123,13 @@ const MedicalDetailsForm = () => {
                                 </button>
                             ))}
                         </div>
-                        <button onClick={() => setStep(5)} className="user__Data__Flow__next-btn">Next →</button>
+                        <button
+                            onClick={() => setStep(5)}
+                            className="user__Data__Flow__next-btn"
+                            disabled={!smokingDrinking}
+                        >
+                            Next →
+                        </button>
                     </div>
                 )}
 
@@ -128,7 +143,11 @@ const MedicalDetailsForm = () => {
                             <li><FaCheckCircle /> Allergies: {allergies || "Not provided"}</li>
                             <li><FaSmoking /> Smoking/Drinking: {smokingDrinking || "Not specified"}</li>
                         </ul>
-                        <button onClick={handleSubmit} disabled={loading} className="user__Data__Flow__confirm-btn">
+                        <button
+                            onClick={handleSubmit}
+                            disabled={loading}
+                            className="user__Data__Flow__confirm-btn"
+                        >
                             {loading ? "Saving..." : "Confirm & Proceed"}
                         </button>
                     </div>

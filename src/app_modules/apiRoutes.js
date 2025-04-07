@@ -12,5 +12,6 @@ export const API_ROUTES = {
   saveUserMedData: `${API_URL}/api/save-medical-details/doxsify`,
   getPremium: `${API_URL}/buy-premium/doxsify`,
   verifyPayment: `${API_URL}/verify-payment/doxsify`,
-  checkSubscription: `${API_URL}/check-subscription/doxsify`
+  checkSubscription: `${API_URL}/check-subscription/doxsify`,
+  checkProfileCompletion: `${API_URL}/check-profile-completion`
 }

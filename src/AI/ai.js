@@ -234,6 +234,21 @@ const toggleChatModal = () => {
   }, []);
 
 
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) return;
+  
+    axios.get(API_ROUTES.checkProfileCompletion, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    .then(res => {
+      const { redirect } = res.data;
+      if (redirect) window.location.href = redirect;
+    })
+    .catch(err => console.error("Profile check failed:", err));
+  }, []);
+  
+
 
   const defaultPage = (
     <div className="container__default__ai__PageWrapper">
@@ -324,6 +339,7 @@ const toggleChatModal = () => {
       { role: 'model', parts: [{ text: 'Great to meet you. What would you like to know?' }] }
     ]);
     setConversationStarted(false);
+    setChatModalOpen(false)
   };
 
 // Inside the component

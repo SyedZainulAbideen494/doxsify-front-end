@@ -200,10 +200,16 @@ const toggleChatModal = () => {
         <h2 className="default__title">Hey, I’m Doxsify AI</h2>
         <p className="default__subtitle">Your personal doctor-grade assistant. Ask me anything medical, upload images, or speak.</p>
         <div className="suggestions">
-          <button onClick={() => setMessage("What are the symptoms of vitamin D deficiency?")} className="suggestion-btn">💊 Symptoms of Vitamin D Deficiency</button>
-          <button onClick={() => setMessage("Suggest treatment for a migraine")} className="suggestion-btn">🧠 Migraine Treatment Options</button>
-          <button onClick={() => setMessage("Is this mole concerning?")} className="suggestion-btn">📷 Analyze My Skin Mole</button>
-        </div>
+  <button onClick={() => setMessage("What are the symptoms of vitamin D deficiency?")} className="suggestion-btn">
+    <span className="emoji">💊</span> Symptoms of Vitamin D Deficiency
+  </button>
+  <button onClick={() => setMessage("Suggest treatment for a migraine")} className="suggestion-btn">
+    <span className="emoji">🧠</span> Migraine Treatment Options
+  </button>
+  <button onClick={() => setMessage("Is this mole concerning?")} className="suggestion-btn">
+    <span className="emoji">📷</span> Analyze My Skin Mole
+  </button>
+</div>
       </div>
     </div>
   );

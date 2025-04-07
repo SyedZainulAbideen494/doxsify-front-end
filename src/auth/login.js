@@ -5,6 +5,7 @@ import './login.css';
 import Axios from 'axios';
 import { API_ROUTES } from '../app_modules/apiRoutes';
 import LoadingSpinner from '../app_modules/LoadingSpinner';
+import axios from 'axios';
 
 const Login = () => {
     const [identifier, setIdentifier] = useState('');
@@ -18,12 +19,33 @@ const Login = () => {
     const handlePasswordChange = (e) => setPassword(e.target.value);
     const togglePasswordVisibility = () => setPasswordVisible(!passwordVisible);
 
- {/*   useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (token) {
-            nav('/');
+    useEffect(() => {
+      const verifyToken = async () => {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          setLoading(false); // Let them continue to sign up
+          return;
         }
-    }, [nav]); */}
+  
+        try {
+          const res = await axios.post(API_ROUTES.sessionCheck, {
+            token,
+          });
+  
+          if (res.data.valid) {
+            // Already logged in, redirect to /
+            nav("/");
+          } else {
+            setLoading(false);
+          }
+        } catch (err) {
+          console.error("Error verifying token:", err);
+          setLoading(false);
+        }
+      };
+  
+      verifyToken();
+    }, [nav]);
 
     const handleSubmit = (event) => {
         event.preventDefault();

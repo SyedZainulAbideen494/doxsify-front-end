@@ -11,6 +11,7 @@ import Modal from 'react-modal';
 import { FaBook, FaPen, FaQuestionCircle, FaTimes } from 'react-icons/fa';
 import { FaComment, FaGear, FaInfo } from 'react-icons/fa6';
 import { API_ROUTES } from '../app_modules/apiRoutes';
+import AuthCheck from '../app_modules/AuthCheck';
 // Voice recognition setup (Web Speech API)
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = SpeechRecognition ? new SpeechRecognition() : null;
@@ -469,7 +470,9 @@ const openProfile = () => {
 // Main Component with Voice Command
 const AIMain = () => {
   return (
+    <AuthCheck>
       <AI />
+      </AuthCheck>
   );
 };
 

@@ -14,5 +14,6 @@ export const API_ROUTES = {
   verifyPayment: `${API_URL}/verify-payment/doxsify`,
   checkSubscription: `${API_URL}/check-subscription/doxsify`,
   checkProfileCompletion: `${API_URL}/check-profile-completion`,
-  getUserProfile: `${API_URL}/getUserProfile/doxsify`
+  getUserProfile: `${API_URL}/getUserProfile/doxsify`,
+  sessionCheck: `${API_URL}/api/verify-token`
 }

@@ -164,7 +164,7 @@ const SubscriptionPage = () => {
       }
 
       // Set pricing based on selected plan
-      const planAmount = selectedPlan === "monthly" ? 999 : 9999; // Razorpay accepts paise (₹39 → 3900, ₹99 → 9900)
+      const planAmount = selectedPlan === "monthly" ? 499 : 3499; // Razorpay accepts paise (₹39 → 3900, ₹99 → 9900)
 
       const { data } = await axios.post(API_ROUTES.getPremium, {
         amount: planAmount,
@@ -261,21 +261,21 @@ const SubscriptionPage = () => {
   
       {/* Plans */}
       <Plans>
-      <PlanBox active={selectedPlan === "monthly"} onClick={() => setSelectedPlan("monthly")}>
-  <BestOfferTag>POPULAR</BestOfferTag>
-  <h4>MONTHLY</h4>
-  <p>₹999 / month</p>
-  <SmallText>Just ₹33/day</SmallText>
-</PlanBox>
+  <PlanBox active={selectedPlan === "monthly"} onClick={() => setSelectedPlan("monthly")}>
+    <BestOfferTag>POPULAR</BestOfferTag>
+    <h4>MONTHLY</h4>
+    <p>₹499 / month</p>
+    <SmallText>Just ₹16.6/day</SmallText> {/* 499 ÷ 30 = ~16.6 */}
+  </PlanBox>
 
-<PlanBox active={selectedPlan === "yearly"} onClick={() => setSelectedPlan("yearly")}>
-  <BestOfferTag>BEST VALUE</BestOfferTag>
-  <h4>YEARLY</h4>
-  <p>₹9,999 / year</p>
-  <SmallText>Just ₹27/day</SmallText>
-</PlanBox>
+  <PlanBox active={selectedPlan === "yearly"} onClick={() => setSelectedPlan("yearly")}>
+    <BestOfferTag>BEST VALUE</BestOfferTag>
+    <h4>YEARLY</h4>
+    <p>₹3,499 / year</p>
+    <SmallText>Just ₹9.6/day</SmallText> {/* 3499 ÷ 365 = ~9.6 */}
+  </PlanBox>
+</Plans>
 
-      </Plans>
   
       {/* CTA Button */}
       {isPremium ? (

@@ -290,14 +290,19 @@ useEffect(() => {
 }, [chatHistory]); // Run whenever the chat history is updated
 
 
-
-const SparkleIcon = ({ size = 18, color = "#b197fc" }) => (
+const SparkleIcon = ({ size = 18, color = "#a259ff" }) => (
   <svg
     height={size}
     width={size}
     viewBox="0 0 24 24"
-    className="sparkle-icon"
-    style={{ fill: color }}
+    style={{
+      fill: color,
+      filter: "drop-shadow(0 0 6px #a259ff)",
+      transition: "transform 0.3s ease",
+      cursor: "pointer"
+    }}
+    onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
+    onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
   >
     <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z" />
   </svg>
@@ -308,11 +313,11 @@ const SparkleIcon = ({ size = 18, color = "#b197fc" }) => (
 <div className="doxsify__ai__container">
 <header className="doxsify__ai__header glass-header">
   <div className="doxsify__avatar__glass">
-    <FaAtom />
+  <SparkleIcon />
   </div>
 
   <h1 className="doxsify__title">
-    Doxsify <span className="sparkle-wrapper"><SparkleIcon /></span>
+    Doxsify <span className="sparkle-wrapper"></span>
   </h1>
 
   <div className="header-right__Clear__msg__msg__his__Modal">

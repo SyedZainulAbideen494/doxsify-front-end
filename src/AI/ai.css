@@ -34,20 +34,20 @@ html, body {
   max-width: 430px;
   height: 100vh;
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0.03); /* More transparent */
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: var(--padding);
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(160deg, #0d011c, #1c043b);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(50px) saturate(180%);
   -webkit-backdrop-filter: blur(50px) saturate(180%);
   box-shadow:
-    inset 0 0 0.8px rgba(255, 255, 255, 0.2),
+    inset 0 0 0.8px rgba(255, 255, 255, 0.1),
     0 30px 60px rgba(0, 0, 0, 0.3),
-    0 0 0 1px rgba(255, 255, 255, 0.05);
-  padding: var(--padding);
-  overflow: hidden;
-  position: relative;
+    0 0 0 1px rgba(255, 255, 255, 0.03);
   transition: all 0.4s ease;
 }
-
 
 .doxsify__ai__header {
   display: flex;

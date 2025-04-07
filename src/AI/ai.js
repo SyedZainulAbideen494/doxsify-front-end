@@ -376,9 +376,13 @@ const SparkleIcon = ({ size = 18, color = "#b197fc" }) => (
         <FaArrowRight />
       </button>
     ) : (
-      <button className="send-btn mic-btn" onClick={listening ? stopListening : startListening}>
-        <FaMicrophone />
-      </button>
+<button
+  className={`send-btn mic-btn ${listening ? "listening" : ""}`}
+  onClick={listening ? stopListening : startListening}
+>
+  <FaMicrophone />
+</button>
+
     )}
   </div>
 </div>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { API_ROUTES } from "../app_modules/apiRoutes";
+import './forgot-password.css'
 
 const ForgotPassword = () => {
   const [emailOrPhone, setEmailOrPhone] = useState("");
@@ -21,20 +22,21 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="forgot-password__doxsify">
-      <h2>Forgot your password?</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter email or phone"
-          value={emailOrPhone}
-          onChange={(e) => setEmailOrPhone(e.target.value)}
-        />
-        <button type="submit">Send Reset Link</button>
-      </form>
-      {message && <p className="success__doxsify">{message}</p>}
-      {error && <p className="error__doxsify">{error}</p>}
-    </div>
+<div className="forgot-password__doxsify">
+  <form onSubmit={handleSubmit}>
+    <h2>Forgot your password?</h2>
+    <input
+      type="text"
+      placeholder="Enter email or phone"
+      value={emailOrPhone}
+      onChange={(e) => setEmailOrPhone(e.target.value)}
+    />
+    <button type="submit">Send Reset Link</button>
+    {message && <p className="success__doxsify">{message}</p>}
+    {error && <p className="error__doxsify">{error}</p>}
+  </form>
+</div>
+
   );
 };
 

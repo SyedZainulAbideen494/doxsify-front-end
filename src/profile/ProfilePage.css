@@ -1,3 +1,4 @@
+/* Container */
 .container__profile__page {
     max-width: 960px;
     margin: auto;
@@ -6,6 +7,7 @@
     color: #ffffff;
 }
 
+/* Header */
 .header__profile__page {
     display: flex;
     align-items: center;
@@ -27,20 +29,22 @@
     color: #ffffff;
     font-size: 1.2rem;
     cursor: pointer;
-    transition: background 0.2s;
     backdrop-filter: blur(10px);
+    transition: background 0.2s ease;
 }
 
 .back-btn__profile__page:hover {
     background: rgba(255, 255, 255, 0.15);
 }
 
+/* Cards Layout */
 .cards-wrapper__profile__page {
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
 
+/* Individual Card */
 .card__profile__page {
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.15);
@@ -63,6 +67,12 @@
     margin-bottom: 1.2rem;
 }
 
+.centered-header__profile__page {
+    justify-content: center;
+    text-align: center;
+}
+
+/* Edit Button */
 .card-edit-btn__profile__page {
     background: linear-gradient(120deg, #4facfe, #00f2fe);
     color: #ffffff;
@@ -79,16 +89,92 @@
     transform: scale(1.05);
 }
 
+/* List Styling */
 .list__profile__page {
     list-style: none;
     padding: 0;
     font-size: 1rem;
     line-height: 1.8;
+    letter-spacing: 0.3px;
+    color: #eaeaea;
 }
 
+/* Loading */
 .loading__profile__page {
     text-align: center;
     padding: 4rem;
-    color: #ffffff;
     font-size: 1.3rem;
+}
+
+/* Subscription Card */
+.subscription__profile__page {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 22px;
+    padding: 2rem;
+    backdrop-filter: blur(24px) saturate(180%);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.subscription__profile__page:hover {
+    box-shadow: 0 12px 40px rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+.subscription-info__profile__page p {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #e0e0e0;
+    margin: 0.2rem 0;
+    line-height: 1.6;
+}
+
+.subscription-info__profile__page p strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Badge */
+.plan-badge__profile__page {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #fff;
+    font-weight: 600;
+    margin-left: 0.3rem;
+}
+
+/* Subscribe Button */
+.subscribe-btn__profile__page {
+    background: linear-gradient(135deg, #f857a6, #ff5858);
+    color: #fff;
+    padding: 0.7rem 1.4rem;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 0.4px;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    align-self: start;
+    box-shadow: 0 4px 15px rgba(255, 88, 88, 0.3);
+}
+
+.subscribe-btn__profile__page:hover {
+    transform: translateY(-1px) scale(1.03);
+    background: linear-gradient(135deg, #f857a6, #ff416c);
+    box-shadow: 0 6px 20px rgba(255, 88, 88, 0.45);
+}
+
+.subscribe-btn-wrapper__profile__page {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
 }

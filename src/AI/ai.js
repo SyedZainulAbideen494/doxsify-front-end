@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import './mathPage.css';
+import './ai.css';
 import MathLoader from './mathLoader';
-import { FaMicrophone, FaPaperPlane, FaArrowRight, FaArrowLeft, FaCog, FaMap,FaUser, FaComments, FaRegCommentDots, FaTrash, FaPaperclip  } from 'react-icons/fa';
+import { FaMicrophone, FaPaperPlane, FaArrowRight, FaArrowLeft, FaCog, FaMap,FaUser, FaComments, FaRegCommentDots, FaTrash, FaPaperclip, FaRobot, FaAtom  } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { TypeAnimation } from 'react-type-animation';
 import Loader from './mathLoader';
@@ -60,7 +60,7 @@ const formatContent = (content) => {
 
 
 
-const MathSolver = () => {
+const AI = () => {
   const [loading, setLoading] = useState(false);
   const [typingMessage, setTypingMessage] = useState('');
   const [message, setMessage] = useState('');
@@ -300,30 +300,33 @@ const SparkleIcon = ({ size = 18, color = "#b197fc" }) => (
 
   return (
 <div className="doxsify__ai__container">
-  <header className="doxsify__ai__header glass-header">
-    <img src={`${API_ROUTES.displayImg}/defPic.png`} className="doxsify__avatar" alt="User" />
-    <h1 className="doxsify__title">Doxsify <span className="sparkle-wrapper"><SparkleIcon /></span></h1>
-    
-    <div className="header-right__Clear__msg__msg__his__Modal">
-  <button className="doxsify__settings__Clear__msg__msg__his__Modal" onClick={toggleChatModal}>
-    <FaGear />
-  </button>
+<header className="doxsify__ai__header glass-header">
+  <div className="doxsify__avatar__glass">
+    <FaAtom />
+  </div>
 
-  {isChatModalOpen && (
-    <div className="inline-settings__Clear__msg__msg__his__Modal">
-      <div className="settings-option__Clear__msg__msg__his__Modal" onClick={() => console.log("Chat History")}>
-        <FaInfo /> <span>Chat History</span>
+  <h1 className="doxsify__title">
+    Doxsify <span className="sparkle-wrapper"><SparkleIcon /></span>
+  </h1>
+
+  <div className="header-right__Clear__msg__msg__his__Modal">
+    <button className="doxsify__settings__Clear__msg__msg__his__Modal" onClick={toggleChatModal}>
+      <FaGear />
+    </button>
+
+    {isChatModalOpen && (
+      <div className="inline-settings__Clear__msg__msg__his__Modal">
+        <div className="settings-option__Clear__msg__msg__his__Modal" onClick={() => console.log("Chat History")}>
+          <FaInfo /> <span>Chat History</span>
+        </div>
+        <div className="settings-option__Clear__msg__msg__his__Modal" onClick={handleClearHistory}>
+          <FaTrash /> <span>Clear Chat</span>
+        </div>
       </div>
-      <div className="settings-option__Clear__msg__msg__his__Modal" onClick={handleClearHistory}>
-        <FaTrash /> <span>Clear Chat</span>
-      </div>
-    </div>
-  )}
-</div>
+    )}
+  </div>
+</header>
 
-
-
-  </header>
 
   <div className="doxsify__chat__area">
     <div className="doxsify__messages">
@@ -331,7 +334,11 @@ const SparkleIcon = ({ size = 18, color = "#b197fc" }) => (
         defaultPage
       ) : (
         chatHistory.slice(2).map((msg, index) => (
-          <div key={index} className={`message__wrapper ${msg.role === 'user' ? 'user-message' : 'ai-message'}`}>
+          <div
+            key={index}
+            className={`message__wrapper ${msg.role === 'user' ? 'user-message' : 'ai-message'}`}
+            style={{ animationDelay: `${index * 0.05}s` }}
+          >
             <div
               className="message-bubble"
               dangerouslySetInnerHTML={{
@@ -339,7 +346,7 @@ const SparkleIcon = ({ size = 18, color = "#b197fc" }) => (
               }}
             />
           </div>
-        ))
+        ))        
       )}
       {loading && (
         <div className="message__wrapper ai-message">
@@ -379,102 +386,11 @@ const SparkleIcon = ({ size = 18, color = "#b197fc" }) => (
   );
 };
 
-
 // Main Component with Voice Command
-const MathPage = () => {
-  const [query, setQuery] = useState('');
-  const [isListening, setIsListening] = useState(false);
-  const navigate = useNavigate(); // Initialize useNavigate hook
-
-
-
+const AIMain = () => {
   return (
-    <div className="math-page">
-     
-      <MathSolver />
-
-    </div>
+      <AI />
   );
 };
 
-// Styles
-const dropdownButtonStyle = {
-  display: "inline-flex",
-  alignItems: "center",
-  justifyContent: "center",
-  padding: "10px 18px",
-  borderRadius: "8px",
-  fontWeight: "600",
-  fontSize: "14px",
-  color: "rgb(112, 215, 255)",
-  background: "transparent",
-  border: "2px solid rgba(112, 215, 255, 0.6)",
-  cursor: "pointer",
-  transition: "all 0.3s ease-in-out",
-};
-
-const dropdownMenuStyle = {
-  position: "absolute",
-  top: "100%",
-  left: "50%",
-  transform: "translateX(-50%)",
-  background: "#222",
-  borderRadius: "8px",
-  padding: "10px 0",
-  boxShadow: "0 6px 12px rgba(0, 0, 0, 0.3)",
-  zIndex: 10,
-  minWidth: "220px",
-};
-
-const dropdownItemStyle = {
-  display: "flex",
-  alignItems: "center",
-  padding: "10px",
-  color: "white",
-  background: "transparent",
-  border: "none",
-  textAlign: "left",
-  cursor: "pointer",
-  fontSize: "14px",
-  transition: "background 0.2s",
-  width: "100%",
-  textDecoration: 'none'
-};
-
-const dropdownDescStyle = {
-  fontSize: "12px",
-  margin: "2px 0 0",
-  color: "rgba(255, 255, 255, 0.7)",
-};
-
-// Sparkle Icons with Different Colors
-const getSparkleIcon = (mode) => {
-  let color;
-  switch (mode) {
-    case "Edusify E1":
-      color = "rgb(112, 215, 255)"; // Cyan
-      break;
-    case "Edusify T1":
-      color = "rgb(191, 90, 242)"; // Purple
-      break;
-    case "Edusify V1":
-      color = "rgb(255, 215, 0)"; // Gold
-      break;
-    default:
-      color = "rgb(112, 215, 255)";
-  }
-
-  return (
-    <svg
-      height="18"
-      width="18"
-      fill={color}
-      viewBox="0 0 24 24"
-      style={{ marginRight: "8px" }}
-    >
-      <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
-    </svg>
-  );
-};
-
-export default MathPage;
+export default AIMain;

@@ -12,7 +12,7 @@ import axios from "axios";
 import Login from "./auth/login";
 import SignUp from "./auth/signup";
 import Dashboard from "./dashboard/Dashboard";
-import MathPage from "./math/mathPage";
+import AIMain from "./AI/ai";
 import UserDetailsForm from "./take data/UserDetailsForm";
 import MedicalDetailsForm from "./take data/UserDetailsFormMed";
 
@@ -31,7 +31,7 @@ const router = createBrowserRouter([
   {path: '/sign-up', element: <SignUp/>},
   {path: '/user-flow-data', element: <UserDetailsForm/>},
   {path: '/user-flow-data-medical', element: <MedicalDetailsForm/>},
-  {path: '/', element: <MathPage/>},
+  {path: '/', element: <AIMain/>},
 ]);
 
 

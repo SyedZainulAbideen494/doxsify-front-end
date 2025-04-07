@@ -395,9 +395,9 @@ const openProfile = () => {
 
     {isChatModalOpen && (
       <div className="inline-settings__Clear__msg__msg__his__Modal">
-        <div className="settings-option__Clear__msg__msg__his__Modal" onClick={() => console.log("Chat History")}>
+       {/* <div className="settings-option__Clear__msg__msg__his__Modal" onClick={() => console.log("Chat History")}>
           <FaInfo /> <span>Chat History</span>
-        </div>
+        </div> */}
         <div className="settings-option__Clear__msg__msg__his__Modal" onClick={handleClearHistory}>
           <FaTrash /> <span>Clear Chat</span>
         </div>

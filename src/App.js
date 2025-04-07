@@ -19,6 +19,8 @@ import SubscriptionPage from "./subscription/SubscriptionPage";
 import PaymentSuccess from "./subscription/PaymentSuccess";
 import ProfilePage from "./profile/ProfilePage";
 import LoadingPage from "./auth/LoadingPage";
+import ForgotPassword from "./auth/forgot-password";
+import ResetPassword from "./auth/ResetPassword";
 
 
 const urlBase64ToUint8Array = (base64String) => {
@@ -39,7 +41,9 @@ const router = createBrowserRouter([
   {path: '*', element: <AIMain/>},
   {path: "/payment-success", element: <PaymentSuccess/>},
   {path: '/profile', element: <ProfilePage/>},
-  {path: '/loading', element: <LoadingPage/>}
+  {path: '/loading', element: <LoadingPage/>},
+  {path: '/forgot-password', element: <ForgotPassword/>},
+  {path: '/reset-password/:token', element: <ResetPassword/>}
 ]);
 
 

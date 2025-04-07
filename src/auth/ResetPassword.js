@@ -1,82 +1,57 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useParams, useNavigate } from 'react-router-dom';
-import './ResetPassword.css';
-import { API_ROUTES } from '../app_modules/apiRoutes';
+import { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { API_ROUTES } from "../app_modules/apiRoutes";
 
 const ResetPassword = () => {
   const { token } = useParams();
-  const navigate = useNavigate(); // Add useNavigate hook
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [message, setMessage] = useState('');
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
+  const nav = useNavigate();
+  const [password, setPassword] = useState("");
+  const [confirm, setConfirm] = useState("");
+  const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleReset = async (e) => {
     e.preventDefault();
-    setMessage('');
-    setError('');
-    setLoading(true);
+    setError("");
+    setMessage("");
 
-    if (password !== confirmPassword) {
-      setError('Passwords do not match.');
-      setLoading(false);
-      return;
+    if (password !== confirm) {
+      return setError("Passwords do not match");
     }
 
     try {
-      await axios.post(API_ROUTES.resetPassword, { token, password });
-      setMessage('Password successfully reset.');
-      setTimeout(() => {
-        navigate('/login'); // Redirect to login page after 2 seconds
-      }, 500);
-    } catch (error) {
-      setError('An error occurred. Please try again.');
-    } finally {
-      setLoading(false);
+      const res = await axios.post(API_ROUTES.doxsifyResetPassword, {
+        token,
+        password,
+      });
+      setMessage(res.data.message);
+      setTimeout(() => nav("/sign-in"), 2000);
+    } catch (err) {
+      setError(err.response?.data?.error || "Reset failed");
     }
   };
 
   return (
-    <div className="reset-password">
-      <div className="reset-password__card">
-        <header className="reset-password__header">
-          <h1 className="reset-password__title">Reset Password</h1>
-        </header>
-        <main className="reset-password__main">
-          <form className="reset-password__form" onSubmit={handleSubmit}>
-            <input
-              type="password"
-              className="reset-password__input"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="New Password"
-              required
-            />
-            <input
-              type="password"
-              className="reset-password__input"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              placeholder="Confirm New Password"
-              required
-            />
-            <button
-              className="reset-password__button"
-              type="submit"
-              disabled={loading}
-            >
-              {loading ? 'Resetting...' : 'Reset Password'}
-            </button>
-          </form>
-          {error && <p className="reset-password__message error-message">{error}</p>}
-          {message && <p className="reset-password__message">{message}</p>}
-        </main>
-        <footer className="reset-password__footer">
-          <p>&copy; 2024 Edusify</p>
-        </footer>
-      </div>
+    <div className="reset-password__doxsify">
+      <h2>Reset Your Password</h2>
+      <form onSubmit={handleReset}>
+        <input
+          type="password"
+          placeholder="New Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          value={confirm}
+          onChange={(e) => setConfirm(e.target.value)}
+        />
+        <button type="submit">Reset Password</button>
+      </form>
+      {message && <p className="success__doxsify">{message}</p>}
+      {error && <p className="error__doxsify">{error}</p>}
     </div>
   );
 };

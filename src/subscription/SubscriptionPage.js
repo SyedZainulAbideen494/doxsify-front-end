@@ -37,7 +37,7 @@ const CloseButton = styled.button`
 
 const SubscriptionContainer = styled.div`
   text-align: center;
-  width: 90%;
+  width: 100%;
   max-width: 420px;
   padding: 30px 20px;
   background: rgba(255, 255, 255, 0.05);

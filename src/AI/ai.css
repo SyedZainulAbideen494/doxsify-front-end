@@ -179,15 +179,10 @@ html, body {
 .message__wrapper {
   display: flex;
   width: 100%;
+  justify-content: center; /* ⬅️ Centers the message horizontally */
 }
 
-.user-message {
-  justify-content: flex-end;
-}
 
-.ai-message {
-  justify-content: flex-start;
-}
 .message__wrapper {
   display: flex;
   width: 100%;
@@ -207,7 +202,7 @@ html, body {
 }
 
 .message-bubble {
-  max-width: 75%;
+  max-width: 99%;
   padding: 12px 16px;
   font-size: 14.2px;
   line-height: 1.5;
@@ -238,6 +233,13 @@ html, body {
   box-shadow:
     0 0 8px rgba(162, 89, 255, 0.08),
     0 0 2px rgba(255, 255, 255, 0.02);
+}
+.message-bubble pre {
+  white-space: pre-wrap;
+  overflow-x: auto;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 8px;
+  border-radius: 8px;
 }
 
 .doxsify__input__bar {

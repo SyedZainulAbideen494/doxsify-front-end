@@ -418,12 +418,15 @@ const openProfile = () => {
             className={`message__wrapper ${msg.role === 'user' ? 'user-message' : 'ai-message'}`}
             style={{ animationDelay: `${index * 0.05}s` }}
           >
-            <div
-              className="message-bubble"
-              dangerouslySetInnerHTML={{
-                __html: msg.parts.map((part) => part.text).join('')
-              }}
-            />
+           <div
+  className="message-bubble"
+  dangerouslySetInnerHTML={{
+    __html: msg.parts.map((part) =>
+      part.text.replace(/html/gi, '') // removes "HTML", "Html", "html", etc.
+    ).join('')
+  }}
+/>
+
           </div>
         ))        
       )}

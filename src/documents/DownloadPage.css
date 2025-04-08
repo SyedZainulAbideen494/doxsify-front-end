@@ -1,0 +1,118 @@
+/* Download Page Section */
+.download-page__Download__Page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 5%;
+    background: rgba(0, 0, 0, 0.85); /* Darkened background */
+    color: white;
+    border-radius: 20px;
+    margin: 60px auto;
+    max-width: 1200px;
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(15px); /* Increased blur for a more premium feel */
+    text-align: center;
+  }
+  
+  /* Content Container */
+  .download-page__content__Download__Page {
+    width: 100%;
+    max-width: 800px;
+    text-align: center; /* Ensure content is centered */
+  }
+  
+  .download-page__title__Download__Page {
+    font-size: 3.2rem;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    letter-spacing: 1px;
+  }
+  
+  .download-page__description__Download__Page {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 40px;
+    font-weight: 400;
+    line-height: 1.7;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Button Container - Centering with Flexbox */
+  .download-page__options__Download__Page {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    align-items: center; /* Center the buttons vertically */
+    gap: 40px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    margin-top: 30px;
+    width: 100%;
+  }
+  
+  /* Buttons */
+  .download-page__btn__Download__Page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ff4081; /* Soft accent color */
+    color: white;
+    font-size: 1.2rem;
+    padding: 20px 40px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 300px;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Hover Effects */
+  .download-page__btn__Download__Page:hover {
+    background-color: #f50057; /* Subtle color shift */
+    transform: translateY(-8px); /* Floating effect */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+  
+  .download-page__btn__Download__Page:focus {
+    outline: none;
+    box-shadow: 0 0 15px #ff4081;
+  }
+  
+  /* Button Icon */
+  .download-page__btn-icon__Download__Page {
+    font-size: 1.8rem;
+    margin-right: 15px;
+  }
+  
+  /* Font Awesome Icon Update */
+  .download-page__btn__Download__Page i {
+    font-size: 1.8rem; /* Updated icon size */
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 768px) {
+    .download-page__title__Download__Page {
+      font-size: 2.5rem;
+    }
+  
+    .download-page__description__Download__Page {
+      font-size: 1.1rem;
+    }
+  
+    .download-page__btn__Download__Page {
+      width: 240px;
+      font-size: 1.1rem;
+      padding: 18px 32px;
+    }
+  
+    .download-page__options__Download__Page {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+  

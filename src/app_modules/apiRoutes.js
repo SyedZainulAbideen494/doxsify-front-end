@@ -17,5 +17,6 @@ export const API_ROUTES = {
   getUserProfile: `${API_URL}/getUserProfile/doxsify`,
   sessionCheck: `${API_URL}/api/verify-token`,
   doxsifyResetPassword: `${API_URL}/api/doxsify/reset-password`,
-  doxsifyForgotPassword: `${API_URL}/api/doxsify/forgot-password`
+  doxsifyForgotPassword: `${API_URL}/api/doxsify/forgot-password`,
+  apiLogDownload: `${API_URL}/api/log-download/doxsify`
 }

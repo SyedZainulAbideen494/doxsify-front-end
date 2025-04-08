@@ -21,6 +21,7 @@ import ProfilePage from "./profile/ProfilePage";
 import LoadingPage from "./auth/LoadingPage";
 import ForgotPassword from "./auth/forgot-password";
 import ResetPassword from "./auth/ResetPassword";
+import DownloadPage from "./documents/DownloadPage";
 
 
 const urlBase64ToUint8Array = (base64String) => {
@@ -43,7 +44,8 @@ const router = createBrowserRouter([
   {path: '/profile', element: <ProfilePage/>},
   {path: '/loading', element: <LoadingPage/>},
   {path: '/forgot-password', element: <ForgotPassword/>},
-  {path: '/reset-password/:token', element: <ResetPassword/>}
+  {path: '/reset-password/:token', element: <ResetPassword/>},
+  {path: '/download', element: <DownloadPage/>}
 ]);
 
 

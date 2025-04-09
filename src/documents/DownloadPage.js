@@ -70,7 +70,7 @@ const DownloadPage = () => {
         },
         body: JSON.stringify({
           outcome: choiceResult.outcome,
-          appTitle: "Edusify",
+          appTitle: "Doxisfy",
           timestamp: new Date().toISOString(),
         }),
       });

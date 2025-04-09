@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './DownloadPage.css';
 import { API_ROUTES } from '../app_modules/apiRoutes';
+import { Link } from 'react-router-dom';
 
 const DownloadPage = () => {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
@@ -123,10 +124,12 @@ const DownloadPage = () => {
             <i className="fa fa-download download-page__btn-icon__Download__Page"></i>
             Download for Android
           </button>
+          <Link to='/'>
           <button className="download-page__btn__Download__Page download-page__web-btn__Download__Page">
             <i className="fa fa-laptop download-page__btn-icon__Download__Page"></i>
             Use on Web
           </button>
+          </Link>
         </div>
       </div>
     </section>

@@ -73,7 +73,7 @@ const validatePhoneNumber = (phone) => {
         return true;
     };
 
-    useEffect(() => {
+ useEffect(() => {
       const verifyToken = async () => {
         const token = localStorage.getItem("token");
         if (!token) {
@@ -100,7 +100,7 @@ const validatePhoneNumber = (phone) => {
   
       verifyToken();
     }, [nav]);
-  
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();

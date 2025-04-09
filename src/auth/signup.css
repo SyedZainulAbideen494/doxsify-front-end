@@ -4,30 +4,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px 10px;
-  background: linear-gradient(to bottom right, #0f0f0f, #1a1a1a);
+  padding: 20px 16px;
+  background: linear-gradient(135deg, #0f0f0f, #1b1b1b);
   font-family: 'SF Pro Display', 'Inter', sans-serif;
   position: relative;
+  overflow: hidden;
   box-sizing: border-box;
 }
 
-/* Optional: Hide scrollbar on Webkit browsers */
-.signup-sign-up-page-card-main-div-signup::-webkit-scrollbar {
-  display: none;
-}
-
-/* Floating Background Effects */
+/* Floating Pattern */
 .signup-sign-up-page-card-main-div-signup::before {
   content: '';
   position: absolute;
   width: 300%;
   height: 300%;
-  background: repeating-radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.02) 1px,
-    transparent 2px
-  );
-  animation: floatBG 30s linear infinite;
+  background: repeating-radial-gradient(circle, rgba(255,255,255,0.02) 1px, transparent 2px);
+  animation: floatBG 40s linear infinite;
   z-index: 0;
   pointer-events: none;
   transform: translate(-50%, -50%);
@@ -35,6 +27,7 @@
   top: 50%;
 }
 
+/* Float Animation */
 @keyframes floatBG {
   from {
     transform: translate(-50%, -50%) rotate(0deg);
@@ -47,26 +40,25 @@
 /* Glassmorphic Card */
 .signup-sign-up-page-card {
   width: 100%;
-  max-width: 450px;
-  background: rgba(255, 255, 255, 0.06);
+  max-width: 460px;
+  background: rgba(255, 255, 255, 0.07);
   border-radius: 20px;
-  padding: 40px 30px;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 48px 32px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   color: #fff;
   z-index: 1;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
+  position: relative;
 }
 
 /* Heading */
 .signup-sign-up-page-heading {
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 30px;
+  font-weight: 800;
   text-align: center;
-  margin-bottom: 10px;
-  color: #ffffff;
-  font-family: 'SF Pro Display', sans-serif;
+  margin-bottom: 12px;
   background: linear-gradient(90deg, #00ffe0, #8b5cf6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -74,18 +66,19 @@
 
 /* Subtext */
 .signup-sign-up-page-subtext {
-  font-size: 15px;
+  font-size: 16px;
   text-align: center;
-  margin-bottom: 28px;
-  color: #ccc;
+  margin-bottom: 30px;
+  color: #cfcfcf;
   font-weight: 300;
+  line-height: 1.6;
 }
 
-/* Form Layout */
+/* Form */
 .signup-sign-up-page-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 22px;
 }
 
 /* Input Group */
@@ -93,109 +86,108 @@
   position: relative;
 }
 
-/* Icon */
+/* Icons */
 .signup-sign-up-page-icon {
   position: absolute;
   top: 50%;
-  left: 16px;
+  left: 14px;
   transform: translateY(-50%);
-  font-size: 15px;
-  color: #aaa;
+  font-size: 16px;
+  color: #bbb;
 }
 
-/* Input Fields */
+/* Inputs */
 .signup-sign-up-page-input {
   width: 100%;
-  padding: 12px 16px 12px 42px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  padding: 13px 16px 13px 44px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
   color: #fff;
-  font-size: 14px;
+  font-size: 15px;
   font-family: 'SF Pro Text', sans-serif;
-  transition: all 0.3s ease;
+  transition: border 0.3s ease, background 0.3s ease;
+}
+
+.signup-sign-up-page-input:focus {
+  border-color: #00bfff;
+  background: rgba(255, 255, 255, 0.07);
+  outline: none;
 }
 
 .signup-sign-up-page-input::placeholder {
   color: #aaa;
 }
 
-.signup-sign-up-page-input:focus {
-  border-color: #007bff;
-  background: rgba(255, 255, 255, 0.08);
-  outline: none;
-}
-
-/* Toggle Password Icon */
+/* Toggle Password */
 .signup-sign-up-page-toggle-password {
   position: absolute;
   top: 50%;
-  right: 16px;
+  right: 14px;
   transform: translateY(-50%);
   cursor: pointer;
   color: #aaa;
-  font-size: 15px;
+  font-size: 16px;
 }
 
-/* Checkbox Container */
+/* Checkbox */
 .signup-sign-up-page-checkbox-container {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 13px;
+  font-size: 13.5px;
   color: #bbb;
+  margin-top: 10px;
 }
 
-/* Checkbox */
 .signup-sign-up-page-checkbox {
   accent-color: #00bfff;
   width: 18px;
   height: 18px;
+  cursor: pointer;
 }
 
-/* Checkbox Label */
 .signup-sign-up-page-checkbox-label {
-  font-size: 13px;
-  color: #bbb;
+  font-size: 13.5px;
+  color: #ccc;
 }
 
-/* Submit Button */
+/* Button */
 .signup-sign-up-page-submit-button {
   background: linear-gradient(to right, #00bfff, #1e90ff);
   color: white;
   padding: 14px;
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   border: none;
-  border-radius: 14px;
+  border-radius: 16px;
   cursor: pointer;
   margin-top: 6px;
-  transition: all 0.3s ease;
   font-family: 'SF Pro Text', sans-serif;
-  box-shadow: 0 5px 20px rgba(0, 191, 255, 0.2);
-}
-
-.signup-sign-up-page-submit-button:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
+  box-shadow: 0 6px 24px rgba(0, 191, 255, 0.25);
+  transition: all 0.3s ease;
 }
 
 .signup-sign-up-page-submit-button:hover:not(:disabled) {
-  transform: translateY(-1px) scale(1.02);
-  box-shadow: 0 5px 25px rgba(30, 144, 255, 0.5);
+  transform: scale(1.03);
+  box-shadow: 0 8px 28px rgba(30, 144, 255, 0.5);
 }
 
-/* Error Message */
+.signup-sign-up-page-submit-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Error */
 .signup-sign-up-page-error {
-  font-size: 13px;
+  font-size: 13.5px;
   color: #ff4d4f;
   text-align: center;
-  margin-bottom: 10px;
 }
 
-/* Links */
+/* Link */
 .signup-sign-up-page-link {
-  font-size: 13px;
+  font-size: 13.5px;
   color: #00bfff;
   text-decoration: none;
   cursor: pointer;
@@ -205,19 +197,43 @@
   text-decoration: underline;
 }
 
-/* Responsive Adjustments */
-@media screen and (max-width: 500px) {
+/* Login Redirect */
+.signup-sign-up-page-card p:last-child {
+  text-align: center;
+  font-size: 14px;
+  color: #aaa;
+  margin-top: 14px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
   .signup-sign-up-page-card {
-    padding: 10px 12px;
-    border-radius: 16px;
+    padding: 30px 20px;
+    border-radius: 18px;
   }
+
   .signup-sign-up-page-heading {
     font-size: 24px;
   }
+
+  .signup-sign-up-page-subtext {
+    font-size: 14.5px;
+  }
+
   .signup-sign-up-page-input {
+    font-size: 14px;
+    padding-left: 42px;
+  }
+
+  .signup-sign-up-page-submit-button {
+    font-size: 15px;
+  }
+
+  .signup-sign-up-page-link {
     font-size: 13px;
   }
-  .signup-sign-up-page-submit-button {
-    font-size: 14px;
+
+  .signup-sign-up-page-checkbox-label {
+    font-size: 13px;
   }
 }
